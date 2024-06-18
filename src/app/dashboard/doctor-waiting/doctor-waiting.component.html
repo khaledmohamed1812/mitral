@@ -1,0 +1,82 @@
+<div *ngIf="loading" class="d-flex justify-content-center" style="height:100vh">
+  <div class="spinner-border" role="status" style="position: absolute;top:50%;color:#0080FF" >
+    <span class="sr-only" id="loading"></span>
+  </div>
+</div>
+<div *ngIf="!loading">
+  <app-nav></app-nav>
+  <div class="second">
+    <div class="container-fluid">
+        <div class="second-header">
+          <img src="./assets/img/logo1wdedit.png" alt="header">
+        </div>
+        <div class="second-content">
+          <ul>
+           <a routerLink="/dashboard/home">
+            <li>الصفحة الرئيسية
+              <i class="fa fa-hospital-o"></i>
+            </li>
+           </a>
+           <a  routerLink="/dashboard/doctor-option">
+            <li class="secondLi ">
+              الأطباء
+              <i class="fa fa-solid fa-stethoscope"></i>
+            </li>
+           </a>
+           <a >
+            <li class="secondLi subcontent">
+              قيد الإنتظار
+            </li>
+           </a>
+          </ul>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    
+    
+    
+    
+      <div class="row mt-3">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <table class="table table-striped" style="height: 85vh; overflow:auto;display: block;">
+            <thead>
+              <tr style="text-align:center">
+                <th> # </th>
+                <th>الجنس</th>
+                <th>العمر</th>
+                <th >المستوى العلمى</th>
+                <th>المحافظة</th>
+                <th>التخصص</th>
+                <th>البريد الإلكتروني</th>
+                <th style="white-space: nowrap;">إسم الدكتور</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr style="text-align:center" *ngFor="let doctor of unVerifyedDoctor">
+                <td style="white-space: nowrap;" >
+                  <div class="btn btn-danger" (click)="acceptOrReject(doctor._id,false)">رفض</div>
+                  <div class="btn btn-primary" (click)="acceptOrReject(doctor._id,true)">قبول</div>
+                </td>
+                <td>{{ doctor.gender=="female"? "أنثي" : "ذكر" }}</td>
+                <td>{{ doctor.birthDate }}</td>
+                <td>
+                  {{ doctor.title }}
+                <div style="width: 100px;margin: auto;">
+                  <img style="width:100%" [src]="doctor.license" alt="">
+                </div>
+
+                </td>
+                <td>{{ doctor.city }}</td>
+                <td>{{ doctor.specialty }}</td>
+                <td >{{ doctor.email }}</td>
+                <td style="white-space: nowrap;">{{ doctor.userName }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+</div>
+  

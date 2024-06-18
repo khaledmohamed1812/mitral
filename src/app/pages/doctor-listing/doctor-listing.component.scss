@@ -1,0 +1,413 @@
+.row{
+    margin: 0;
+}
+
+.reserve-intro{
+    background-color: #0080FF;
+    flex-direction: row-reverse;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 15px;
+    border-top: 1px solid #0771db ;
+    .text{
+
+       color: white;
+       text-align: right;
+       font-size: 24px;
+    }
+    .img{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 60%;
+     height: 100%;
+    }
+}
+  
+  .reservation-info form .row {
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  .reservation-info form .row div {
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px gray;
+    background-color: white;
+  
+  }
+  
+  .reservation-info form .row div h1 {
+    font-size: 20px;
+    color: #797979;
+    text-align: right;
+  
+  }
+  
+  .reservation-info form .row div p {
+    color: #0080FF;
+    font-size: 20px;
+    text-align: right;
+  
+  }
+  
+  .reservation-info form .row div p select {
+    border: 0px;
+    margin-right: 10px;
+  }
+  
+  .reservation-info form .row .div1 {
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  
+  .reservation-info form .row .div5 {
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    background-color: red;
+  }
+  
+  .reservation-info form .row .div5 button h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: white;
+  }
+  
+  @media(max-width:770px) {
+    .reservation-info form .row div {
+      width: 80%;
+      margin: 10px auto;
+      border-radius: 20px;
+    }
+  
+    .reservation-info form .row .div5 {
+      text-align: center;
+    }
+  
+    .reservation-info form .row div {
+      text-align: right;
+  
+    }
+  
+    .reservation-info form .row div h1 {
+      display: inline;
+  
+    }
+  
+    .reservation-info form .row div p {
+      display: inline;
+  
+    }
+  }
+  
+  .doctor-listing-container{
+    background-color: #F2F1F1;
+    flex-direction: row-reverse;
+    padding: 20px;
+  }
+  
+.accordion-item{
+    border:1px solid #00000029;
+    padding: 0 20px;
+}
+.accordion-button{
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    color: #707070;
+    padding: 1rem 0;
+    .title{
+        font-size: 20px;
+        font-weight: bold;
+        i{
+            color: #0080FF;
+        }
+    }
+    .arrow{
+        background-color: #0080FF;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+
+    }
+}
+.accordion-button:not(.collapsed){
+    background-color: white;
+    box-shadow: none;
+}
+.accordion-button::after{
+   display: none;
+}
+.accordion-button:focus{
+    box-shadow: none;
+    border: none;
+}
+.accordion-body{
+    color:#707070;
+    direction: rtl;
+    padding: 0 0 20px 0;
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      .checkmark {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        border: 1px solid #0080FF;
+      }
+      
+      .container:hover input ~ .checkmark {
+        background-color:rgba(58, 157, 253,.4); ;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .container .checkmark:after {
+        left: 6px;
+        top: 0px;
+        width: 8px;
+        height: 15px;
+        border: solid #0080FF;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+}
+
+.speciality-title{
+    text-align: right;
+    color: #707070;
+    font-size: 24px;
+    font-weight: bold;
+}
+.dropdown {
+  position: relative;
+  button{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 250px;
+    padding:  0;
+    border: 1px solid #0080FF;
+    background-color: white;
+    color: #ABABAB;
+    text-align: right;
+    
+
+    .arrow{
+      background-color: #0080FF;
+      color: white;
+    }
+  }
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 250px;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  background-color: white;
+  z-index: 2;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  display: block;
+  color: #707070;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-align: right;
+  cursor: pointer;
+}
+.selected {
+  color: #FFFFFF;
+  background-color: #0080FF;
+}
+.dropdown-content a:hover {
+  color: #FFFFFF;
+  background-color: #0080FF;
+}
+
+.doctor-container{
+  display: flex;
+  padding: 20px;
+  flex-direction: row-reverse;
+  background-color: white;
+  border: 1px solid #0080FF;
+  margin-top: 20px;
+  .doctor-details-container{
+    flex-direction: row-reverse;
+
+    .img{
+      width: 110px;
+      height: 125px;
+      padding: 0;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .doctor-details{
+      text-align: right;
+      display: flex;
+
+      flex-direction: column;
+      justify-content: space-evenly;
+      p{
+        margin: 0;
+      }
+      .doctor-name{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .doctor-title{
+        color: #999999;
+      }
+      .rating{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        span{
+          margin: 2px;
+        }
+        .rate {
+          font-size: 18px;
+          font-weight: bold;
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          margin-right: 5px;
+  
+        }
+        .checked{
+            color: #FFD700;
+        }
+  
+    }
+    }
+  }
+  .details-container{
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    p{
+      margin-bottom:.4rem ;
+      color: #323334;
+      i{
+        color: #877BEE;
+      }
+    }
+    .distance{
+      background-color: #0080FF;
+      color: white;
+      padding: 5px 10px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      font-size: 20px;
+      i{
+        color: #FFD700;
+        margin-right: 10px;
+      }
+
+
+
+    }
+  }
+  .scrolling {
+    display: flex;
+    overflow-x: scroll;
+    flex-direction: row-reverse;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+  
+.sm-card-container {
+    display: flex;
+    
+    .card {
+      width: 11rem;
+      border: none;
+      height: 100%;
+      background-color: #F2F1F1;
+      box-shadow: 5px 5px 5px gray;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      align-items: center;
+      margin:  0 20px;
+
+      .day{
+        background-color:#0080FF ;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 5px;
+        width: 100%;
+      }
+      .time{
+        background-color:#0080FF ;
+        width: 100%;
+        padding: 5px 10px;
+        margin: 5px 0;
+        border-radius:10px ;
+      }
+      .reserveNow{
+        background-color: red;
+        width: 100%;
+        cursor: pointer;
+        padding: 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .disabled{
+        background-color: #707070;
+        cursor: not-allowed;
+      }
+      .noAvailableTime{
+        color: #707070;
+        font-size: 22;
+        padding: 0 20px;
+
+      }
+        
+      
+    }  
+}
+}

@@ -1,0 +1,203 @@
+<div *ngIf="loading" class="d-flex justify-content-center" style="height:100vh">
+    <div class="spinner-border" role="status" style="position: absolute;top:50%;color:#0080FF" >
+      <span class="sr-only" id="loading"></span>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="row page-container">
+        <div class="col-lg-7">
+            <div class="doctor-info">
+                <div class="row doctor-details-container" >
+                    <div class="img">
+                    <img [src]="doctorInfo.photo" alt="">
+                    </div>
+                    <div class="doctor-details">
+                    <p class="doctor-name">{{doctorInfo.userName}}</p>
+                    <p class="doctor-title">{{doctorInfo.title}}</p>
+                    <div class="rating">
+        
+                        <p class="rate">
+                        {{doctorInfo.raiting}}
+                        </p>
+                        <span [ngClass]="{'checked': doctorInfo.raiting==5}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=4}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=3}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=2}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=1}" class="fa fa-star checked"></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="row loaction-container" >
+                    <div class="location-icon-container">
+                        <i class="fa fa-regular fa-map-pin"></i>
+                    </div>
+                    <div class="doctor-details">
+                    <p>{{doctorInfo.city}} - {{doctorInfo.region}}</p>
+                    </div>
+                </div>
+                <div class="review-patient-container">
+                    <div class="first-row">تقيمات المرضي  <i class="fa fa-regular fa-book"></i></div>
+                    <div *ngIf="doctorInfo.reviews.length != 0">
+                        <div *ngFor="let review of doctorInfo.reviews"  class="review">
+                            <div style="display: flex; flex-direction:row-reverse;justify-content:space-between; align-items:center">
+                                <p class="review-name">{{review.name}}</p>
+                                <p class="review-rate" >
+                                    <span [ngClass]="{'checked': review.rating==5}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=4}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=3}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=2}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=1}" class="fa fa-star"></span>
+                                </p>
+        
+                            </div>
+                            <p class="review-content">"{{review.comment}}"</p>
+                        </div>
+
+                    </div>
+                    <div *ngIf="doctorInfo.reviews.length == 0">
+                        <div  class="review">
+                            <div style="display: flex; flex-direction:row-reverse;justify-content:space-between; align-items:center">
+                                <p class="review-name"> لا يوجد تقييمات</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                
+            </div>
+            <div class="doctor-info-container">
+                <p style="margin: 0 10px 5px 0;"> معلومات عن الدكتور <i style="margin-left: 10px; font-size: 35px;" class="fa fa-regular fa-info"> </i></p>
+                <p style="margin:0 65px 5px 0;">{{doctorInfo.title}}</p>
+                <p style="margin:0 90px 0 0;">مدير مستشفى ام المصريين التخصصية</p>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div style="border-radius: 20px; width:100%" (click)="open(blockAccount)" class="btn btn-danger"> حظر الحساب</div>
+            <div class="reservation-info-container mt-3">
+                <div class="header"> معلومات الحجز <i class="fa fa-regular fa-info"></i></div>
+                <div class="body">
+                    <div>
+                        <i class="fa fa-solid fa-money"></i>
+                        <p>سعر الكشف</p>
+                        <p>{{doctorInfo.price}} جنيه</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-regular fa-search"></i>
+                        <i class="fa fa-regular fa-clock-rotate-left"></i>
+
+                        <p>{{doctorInfo.location}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="time-reservation-info-container">
+                <div class="header"> اختار ميعاد الحجز </div>
+                <div style="padding:20px ;"> 
+                    <p >يوليو 2022</p>
+                    <div class="body" *ngIf="keys.length !=0">
+                        <div  (click)="selectedDay(day,i)" [ngClass]="{'selected': i==dayClickedIndex}"  *ngFor="let day of keys; let i=index">
+                            <p>{{day}}</p>
+                        </div>
+                    </div>
+                    <div class="body" *ngIf="keys.length ==0">
+                      لا يوجد مواعيد متاحة
+                    </div>
+                    <div [hidden]="!showTime">
+                        <p class="mt-4" >الساعة</p>
+                        <div class="time-body">
+                            <div *ngFor="let time of values[dayClickedIndex]; let i=index">
+                                <p>{{time}}</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row table-container">
+            <p class="title" style="margin: 0 10px 5px 0;"> الشكاوي <i style="margin-left: 10px; font-size: 35px;" class="fa fa-regular fa-sticky-note-o"> </i></p>
+            
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr style="text-align: center">
+                    <th scope="col">تفاصيل الشكوي</th>
+                    <th scope="col">من</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="complaints.length != 0">
+                  <tr *ngFor="let com of complaints" style="text-align: center">
+                    <td scope="row">{{com.details}}</td>
+                    <td>{{com.user == null ?'مستخدم مترال' : com.user.userName }}</td>
+                  </tr>
+                </tbody>
+                <tbody *ngIf="complaints.length == 0">
+                    <tr>
+                        <td style="text-align: center;font-size: 30px; font-weight: bold;text-align: center;" colspan="2">لا يوجد شكاوي</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+        <div class="row table-container">
+            <p class="title" style="margin: 0 10px 5px 0;"> الحسابات  <i style="margin-left: 10px; font-size: 35px;" class="fa fa-calculator"> </i></p>
+            
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr style="text-align: center">
+                    <th scope="col"> صافي الربح</th>
+                    <th scope="col"> ربح الدكتور</th>
+                    <th scope="col"> إجمالي الأموال</th>
+                    <th scope="col"> إجمالي عدد الكشوفات</th>
+                    <th scope="col"> مدفوعات الأوفلاين</th>
+                    <th scope="col">عدد الكشوفات الأوفلاين</th>
+                    <th scope="col">مدفوعات الأونلاين</th>
+                    <th scope="col">عدد الكشوفات الأونلاين</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="text-align: center">
+                    <td scope="row">{{accounts.totals.profit}}</td>
+                    <td scope="row">{{accounts.totals.doctorGained}}</td>
+                    <td scope="row">{{accounts.totals.totalPaid}}</td>
+                    <td scope="row">{{accounts.totals.totalOrders}}</td>
+
+                    <td scope="row">{{accounts.DoctorOrderOfline[0].totalPaid}}</td>
+                    <td scope="row">{{accounts.DoctorOrderOfline[0].totalOrders}}</td>
+
+                    <td scope="row">{{accounts.DoctorOrderOnline[0].totalPaid}}</td>
+                    <td scope="row">{{accounts.DoctorOrderOnline[0].totalOrders}}</td>
+
+                  </tr>
+                </tbody>
+                
+            </table>
+    
+        </div>
+    </div>
+    
+
+
+</div>
+<ng-template #blockAccount let-modal>
+    <div class="modal-header" style="justify-content: center">
+      <h4 class="modal-title" id="modal-basic-title">
+        تأكيد حظر الحساب
+      </h4>
+    </div>
+    <div class="modal-body text-center">
+      <p>هل انت متأكد من انك تريد حظر الحساب ؟</p>
+    </div>
+    <div class="modal-footer" style="justify-content: flex-start;">
+        <button type="button" class="btn btn-primary" (click)="modal.dismiss('Cross click')" >
+            إغلاق
+        </button>
+        <button type="button" class="btn btn-danger"  (click)="onBlockAccount()">
+            نعم
+        </button>
+    </div>
+</ng-template>

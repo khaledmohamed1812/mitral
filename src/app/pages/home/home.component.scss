@@ -1,0 +1,752 @@
+/* slider */
+a{
+  cursor: pointer;
+}
+.slid {
+    width: 100%;
+    height: 120vh;
+    margin: auto;
+    margin-bottom: 100px;
+    position: relative;
+  }
+  
+  .carousel {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    border-radius: 5px !important;
+    height: 100%;
+  }
+  
+  .carousel-inner {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+  }
+  
+  .item {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  
+  .item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border-radius: 20px;
+  }
+  
+  .carousel-control {
+    border-radius: 20px;
+    height: 100%;
+  }
+  
+  @media(max-width: 520px) {
+    .item {
+      border-radius: 0px;
+    }
+  
+    .item img {
+  
+      border-radius: 0px;
+      border-radius: 0px;
+    }
+  }
+  
+  /*=======================================================================================  */
+  
+  
+  .overSlide {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    bottom: 0%;
+    box-shadow: 5px 5px 5px gray;
+  
+  }
+  
+  .overSlide .nav {
+    justify-content: center;
+    width: 100% !important;
+  }
+  
+  .overSlide .nav .li1 {
+    border-bottom-left-radius: 20px;
+  }
+  
+  .overSlide .nav .li1 .nav-link {
+    border-bottom-left-radius: 20px;
+  }
+  
+  .overSlide .nav .li2 {
+    border-bottom-right-radius: 20px;
+  }
+  
+  .overSlide .nav .li2 .nav-link {
+    border-bottom-right-radius: 20px;
+  }
+  
+  .overSlide .nav .nav-item {
+    border: 1px solid gray;
+  }
+  
+  .overSlide .nav-pills>li {
+    float: left;
+    width: 45%;
+    box-shadow: 5px 5px 5px grey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-pills .nav-link.active,
+  .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0080FF;
+  }
+  
+  .nav>li>a {
+    color: #0080FF;
+  }
+  
+  .overSlide .calDoctor {
+    text-align: right;
+    direction: rtl;
+  }
+  
+  .overSlide .calDoctor div {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .overSlide .calDoctor div h1 {
+    font-size: 30px;
+    margin: 0px;
+  }
+  
+  .overSlide .calDoctor div p {
+    font-size: 18px;
+  }
+  
+  .overSlide .calDoctor i {
+    font-size: 80px;
+  }
+  
+  .nav-pills>li.active>a,
+  .nav-pills>li.active>a:focus,
+  .nav-pills>li.active>a:hover {
+    border-bottom: 5px solid red;
+  }
+  
+  .nav-pills .nav-link.active {
+    border-bottom: 5px solid red;
+  }
+  
+  @media(max-width: 950px) {
+  
+    .slid {
+      height: 100vh;
+  
+    }
+  
+    .carousel-inner {
+  
+      height: 60%;
+  
+    }
+  
+    .overSlide .nav-pills>li {
+      width: 48%;
+    }
+  
+    .overSlide .calDoctor {
+      text-align: center;
+    }
+  
+    .overSlide .nav .li2 .nav-link {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .overSlide .calDoctor div h1 {
+      font-size: 25px;
+      margin: 0px;
+    }
+  
+    .overSlide .calDoctor div p {
+      font-size: 12px;
+    }
+  
+    .overSlide .calDoctor i {
+      font-size: 20px;
+    }
+  
+    .overSlide .calDoctor div {
+      margin-right: 5px;
+    }
+  }
+  
+  /* --------------------------------------------------- */
+  #pills-home {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  #pills-home form .row {
+    justify-content: center;
+  }
+  
+  #pills-home form .row div {
+    display: inline-block;
+    border: 1px solid gray;
+    /* height: 100px; */
+    margin: 10px 0px;
+    box-shadow: 5px 5px 5px gray;
+  }
+  
+  #pills-home form .row .div1 {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  #pills-home form .row .div2 {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 100%;
+    background-color: red;
+  }
+  
+  #pills-home form .row .div2 button h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 5px;
+  }
+  
+  #pills-home form .row .div1 h1 {
+    color: #707070;
+    font-size: 22px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  #pills-home form .row .div1 p {
+    font-size: 30px;
+    color: #8B7FEE;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  #pills-home form .row .div1 p select {
+    border: 0px;
+    margin-right: 10px;
+  }
+  
+  @media(max-width:770px) {
+    #pills-home form .row div {
+      width: 80%;
+      margin: 10px auto;
+      border-radius: 20px;
+    }
+  }
+  
+  /* ----------------------------------------------------------------------*/
+  #pills-profile {
+    margin-bottom: 50px;
+  }
+  
+  #pills-profile form .row {
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  #pills-profile form .row div {
+    border: 1px solid gray;
+    box-shadow: 5px 5px 5px gray;
+  
+  }
+  
+  #pills-profile form .row div h1 {
+    font-size: 20px;
+    color: #797979;
+    text-align: right;
+  
+  }
+  
+  #pills-profile form .row div p {
+    color: #0080FF;
+    font-size: 20px;
+    text-align: right;
+  
+  }
+  
+  #pills-profile form .row div p select {
+    border: 0px;
+    margin-right: 10px;
+  }
+  
+  #pills-profile form .row .div1 {
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  
+  #pills-profile form .row .div5 {
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    background-color: red;
+  }
+  
+  #pills-profile form .row .div5 button h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: white;
+  }
+  
+  @media(max-width:770px) {
+    #pills-profile form .row div {
+      width: 80%;
+      margin: 10px auto;
+      border-radius: 20px;
+    }
+  
+    #pills-profile form .row .div5 {
+      text-align: center;
+    }
+  
+    #pills-profile form .row div {
+      text-align: right;
+  
+    }
+  
+    #pills-profile form .row div h1 {
+      display: inline;
+  
+    }
+  
+    #pills-profile form .row div p {
+      display: inline;
+  
+    }
+  }
+  
+  
+  
+  /* ====================================================================================*/
+  
+  
+  
+  
+  
+  
+  
+  
+  /* =================الخدامات الطبيه ====================================================================== */
+  .service {
+  
+    margin-bottom: 100px;
+    background-color: white;
+  }
+  
+  
+  .service .h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px 40px;
+    margin: 11px 30px;
+    direction: rtl;
+    text-align: right;
+    color: #474E4E;
+  }
+  
+  .service .row {
+    background-color: #0080FF;
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .service .row .img {
+    width: 80%;
+    height: 100%;
+  }
+  
+  
+  .service .row .content {
+    color: white;
+    direction: rtl;
+    text-align: right;
+    padding: 30px 60px;
+    box-sizing: border-box;
+  }
+  
+  .service .row .content h1 {
+    color: white !important;
+    margin: 10px !important;
+    font-size: 40px;
+    font-weight: bold;
+  
+  }
+  
+  .service .row .content p {
+    margin: 10px;
+    font-size: 23px;
+  }
+  
+  .service .row .content button {
+    font-size: 40px;
+    padding: 9px 46px;
+    margin: 15px 10px;
+    background-color: #FF0000;
+    border-radius: 20px;
+  }
+  
+  
+  /* ============================================================================================ */
+  
+  
+  
+  
+  
+  
+  
+  /* ================= مترال ميديا ====================================================================== */
+  .media2 {
+  
+    margin-bottom: 100px;
+    background-color: white;
+  }
+  
+  
+  .media2 .h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px 40px;
+    margin: 11px 30px;
+    direction: rtl;
+    text-align: right;
+    color: #474E4E;
+  }
+  
+  .media2 .row {
+    background-color: #0080FF;
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .media2 .row .img {
+    width: 60%;
+    height: 100%;
+    padding: 5px 30px;
+  
+  }
+  
+  .media2 .row .img img {
+    height: 100% !important;
+    margin: auto;
+  }
+  
+  .media2 .row .content {
+    color: white;
+    direction: rtl;
+    text-align: right;
+    padding: 30px 60px;
+    box-sizing: border-box;
+  }
+  
+  .media2 .row .content h1 {
+    color: white !important;
+    margin: 10px !important;
+    font-size: 40px;
+    font-weight: bold;
+  
+  }
+  
+  .media2 .row .content p {
+    margin: 20px 10px;
+    padding: 5px;
+    font-size: 18px;
+  }
+  
+  .media2 .row .content button {
+    font-size: 40px;
+    padding: 0px 46px;
+    margin: 15px 10px;
+    background-color: white;
+    border-radius: 20px;
+    color: #0080FF;
+    width: 85%;
+  }
+  
+  @media(max-width: 750px) {
+    .media2 .row .img {
+      width: 100%;
+    }
+  
+    .service .row .img {
+      width: 100%;
+    }
+  }
+  
+  /* ============================================================================================ */
+  
+  
+  
+  
+  
+  
+  /* slider ================================================================================================== */
+  .bookType {
+  
+    margin-bottom: 100px;
+    background-color: white;
+  }
+  
+  
+  .bookType .h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px 40px;
+    margin: 20px 30px;
+    direction: rtl;
+    text-align: right;
+    color: #474E4E;
+  }
+  
+  .bookType .row {
+  
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+
+  
+ 
+  
+  /* slider ================================================================================================== */
+  
+  
+  
+  
+  
+  
+  /* =================  مركز ادارة الازمات ====================================================================== */
+  .center {
+  
+    margin-bottom: 100px;
+    background-color: white;
+  }
+  
+  
+  .center .h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px 40px;
+    margin: 11px 30px;
+    direction: rtl;
+    text-align: right;
+    color: #474E4E;
+  }
+  
+  .center .row {
+    background-color: #0080FF;
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .center .row .img {
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .center .row .img img {
+    height: 100% !important;
+    margin: auto;
+  }
+  
+  .center .row .content {
+    color: white;
+    direction: rtl;
+    text-align: right;
+    padding: 30px 60px;
+    box-sizing: border-box;
+  }
+  
+  .center .row .content h1 {
+    color: white !important;
+    margin: 10px !important;
+    font-size: 40px;
+    font-weight: bold;
+  
+  }
+  
+  
+  
+  .center .row .content ul li {
+    font-size: 20px;
+    line-height: 3;
+  }
+  
+  
+  /* ============================================================================================ */
+  
+  
+  
+  
+  
+  
+  /* =================    تحميل التطبيق ====================================================================== */
+  .downloadApp {
+  
+    margin-bottom: 100px;
+    background-color: white;
+  }
+  
+  
+  
+  .downloadApp .row {
+    background-color: #0080FF;
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .downloadApp .row .div1 {
+    border-right: 5px solid red;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .downloadApp .row .img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  
+  }
+  
+  .downloadApp .row .img img {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .downloadApp .row h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: right;
+    margin: 20px;
+  
+  }
+  
+  .downloadApp .row p {
+    color: white;
+    font-size: 20px;
+    text-align: right;
+    margin: 10px 40px;
+  }
+  
+  .downloadApp .row .div1 img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+  }
+  
+  .downloadApp .row .content .img {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .downloadApp .row .content .img img {
+    background-size: cover;
+    width: 50%;
+  
+  }
+  
+  /* ============================================================================================ */
+  
+  
+  @media(max-width: 520px) {
+  
+    .service .h1,
+    .media2 .h1,
+    .bookType .h1,
+    .center .h1 {
+      padding: 5px 22px;
+      margin: 0px;
+      font-size: 30px;
+    }
+  
+    .media2 .row .content h1 {
+      font-size: 30px;
+    }
+  
+    .media2 .row .content button {
+      font-size: 30px;
+      padding: 0px;
+    }
+  
+    .downloadApp .row h1 {
+      font-size: 42px;
+    }
+  
+    .downloadApp .row .content .img img {
+      width: 70%;
+    }
+  }
+
+  .scrolling {
+    display: flex;
+    overflow-x: scroll;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+  
+.sm-card-container {
+    display: flex;
+    .card {
+        width: 25rem;
+        height: 25rem;
+        position: relative;
+        border: none;
+        background-color: #0080FF;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 5px 5px 5px gray;
+        margin: 20px;
+        img {
+            border-radius: 0.5rem;
+            width: 100%;
+            height: 100%;
+        }
+        .card-title {
+            font-size: 30px;
+          
+            text-align: center;
+            color: white;
+          }
+        
+      
+    }  
+}

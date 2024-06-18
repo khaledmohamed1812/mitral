@@ -1,0 +1,86 @@
+.row{
+    margin: 0;
+}
+.header-page{
+    color: #007CF5;
+    border: 1px solid #007CF5;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    p{
+        margin: 0;
+    }
+    i{
+        margin-left: 10px;
+    }
+}
+.form-control{
+    border: 1px solid #007CF5;
+}
+.input-container{
+    flex-direction: row-reverse;
+    text-align: right;
+    color: #007CF5;
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+    margin-top: 20px;
+    input{
+        text-align: right;
+    }
+
+}
+.footer{
+    background-color: #007CF5;
+    color: white;
+    width: 50%;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: 0 25% 50px 25%;
+    div{
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .button-selected{
+        background-color: red;
+       
+    }
+
+}
+
+.profileOrChangePass{
+
+    background-color: #007CF5;
+    color: white;
+    width: 60%;
+    margin-top: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    div:first-child{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div{
+        padding: 10px;
+        text-align: right;
+        border-bottom:1px solid white ;
+        cursor: pointer;
+        i{
+            color: red;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+    }
+   
+}

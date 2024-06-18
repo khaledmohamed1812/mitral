@@ -1,0 +1,59 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div  class="doctor-reservation-page">
+        <div class="doctor-reservation-container">
+            
+            <div class="row" style="flex-direction: row-reverse;">
+                <div class="col-lg-6 row doctor-details-container" >
+                    <div class="img">
+                    <img [src]="doctorInfo.photo" alt="">
+                    </div>
+                    <div class="doctor-details">
+                    <p class="doctor-name">{{doctorInfo.userName}}</p>
+                    <p class="doctor-title">{{doctorInfo.title}}</p>
+                    <div class="rating">
+        
+                        <p class="rate">
+                        {{doctorInfo.raiting}}
+                        </p>
+                        <span [ngClass]="{'checked': doctorInfo.raiting==5}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=4}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=3}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=2}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=1}" class="fa fa-star  checked"></span>
+                    </div>
+                    <div class="distance">
+                        <i class="fa fa-solid fa-map-pin"></i> 5.3 km 
+                    </div>
+                    </div>
+                </div>
+                <div class="details-container col-lg-6">
+                    <p >{{doctorInfo.specialty}} <i class="fa fa-solid fa-stethoscope"></i></p>
+                    <p >{{doctorInfo.city}} - {{doctorInfo.region}}<i class="fa fa-solid fa-map-pin"></i></p>
+                    <p>الكشف : {{doctorInfo.price}} جنيه <i class="fa fa-solid fa-money"></i></p>
+                    
+                </div>
+            </div>
+            <div class="reservation-info">
+              <div class="header">
+                  <p>تم تأكيد الحجز</p>
+              </div>
+              <div class="body">
+                  <p>ادخل بيانات الحجز <i class="fa fa-info"></i></p>
+                      
+                  <p class="mt-3">{{date}}  <i class="fa fa-regular fa-calendar"></i></p>
+                  <p> {{patientName}} <i class="fa fa-regular fa-id-badge"></i></p>
+                  <p>{{mobile}} <i class="fa fa-regular fa-phone fa-flip-horizontal"></i></p>
+                  <p *ngIf="email">{{email}} <i class="fa fa-regular fa-envelope"></i></p>
+                  <div *ngIf="online" (click)="PayOnline()" class="btn btn-primary"style="width:100%">إدفع</div>
+                  
+                </div>
+              <div class="footer row">
+                  <div (click)="goToHome()">العودة للصفحة الرئيسية</div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

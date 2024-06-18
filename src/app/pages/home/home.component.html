@@ -1,0 +1,340 @@
+
+
+<!-- navbare ---------------------------------------------------------->
+<app-nav></app-nav>
+
+
+<div class="container-fluid">
+  <div class="row fluid">
+        <!-- slider -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="slid">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <!-- <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol> -->
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="./assets/img/background.jpeg" alt="Los Angeles">
+                </div>
+
+                <div class="item">
+                  <img src="./assets/img/logo/successful-medical-team.jpg" alt="Chicago">
+                </div>
+
+                <div class="item">
+                  <img src="./assets/img/logo/close-up-doctor-kid-wearing-masks.jpg" alt="New york">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+            <div class="overSlide">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item  li1" role="presentation">
+                      <a class="nav-link" [ngClass]="{'active' : callDoctor}" (click)="callDoctor =true" id="pills-home-tab" data-toggle="pill" role="tab"
+                        aria-controls="pills-home" aria-selected="true">
+
+
+                        <div class="calDoctor">
+                          <i class="fa fa-solid fa-video"></i>
+                          <div>
+                            <h1>مكالمة دكتور </h1>
+                            <p>المتابعات والاستشارات السريعة</p>
+                          </div>
+                        </div>
+
+                      </a>
+                    </li>
+                    <li class="nav-item li2" role="presentation">
+                      <a class="nav-link" [ngClass]="{'active' : !callDoctor}" (click)="callDoctor =false" id="pills-profile-tab" data-toggle="pill" role="tab"
+                        aria-controls="pills-profile" aria-selected="false">
+                        <div class="bookDoctor calDoctor">
+                          <i class="fa fa-solid fa-house-chimney-medical"></i>
+                          <div>
+                            <h1>احجز دكتور </h1>
+                            <p> الكشف او الاجراء</p>
+                          </div>
+                        </div>
+
+                      </a>
+                    </li>
+
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade in" id="pills-home" [ngClass]="{'show active' : callDoctor}"  role="tabpanel"
+                      aria-labelledby="pills-home-tab">
+                      <form action="">
+                        <div style="direction: rtl;" class="row">
+                          <div class="col-lg-3 col-md-10 col-sm-10  div1">
+                            <h1>انا ابحث عن دكتور</h1>
+                            <div style="border: transparent; box-shadow:none">
+                              <!-- <i class="fa fa-solid fa-stethoscope"></i> -->
+                              <select class="form-control" [(ngModel)]="specialty" [ngModelOptions]="{standalone: true}" name="specialty" id="specialty">
+                                <option [value]='0' disabled selected>اختار التخصص</option>
+                                <option value="التجميل">قسم التجميل</option>
+                                <option value="الاسنان">قسم الاسنان</option>
+                                <option value="العيون">قسم العيون</option>
+                                <option value="العظام">قسم العظام</option>
+                                <option value="القلب">قسم القلب</option>
+                                <option value="انف وأذن وحنجرة">قسم انف وأذن وحنجرة</option>
+                                <option value="تحاليل">قسم التحاليل</option>
+                                <option value="اشعه">قسم الأشعه</option>
+                              </select>
+
+                            </div>
+                          </div>
+
+                          <div class="col-lg-3 col-md-10  col-sm-10  div2" (click)="searchReservationDoctor('online')">
+                            <button class="btn">
+                              <h1>
+                                <i class="fa fa-solid fa-magnifying-glass"></i>
+                                ابحث
+                              </h1>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile"  [ngClass]="{'show active' : !callDoctor}" role="tabpanel" aria-labelledby="pills-profile-tab">
+                      <form action="">
+                        <div style="direction: rtl;" class="row">
+                          <div class="col-lg-2 col-md-10 col-sm-10 div1 ">
+                            <h1>انا ابحث عن دكتور</h1>
+                            <div style="border: transparent; box-shadow:none;">
+                              <!-- <i class="fa fa-solid fa-stethoscope col-lg-1"></i> -->
+                              <select class="form-control" [(ngModel)]="specialty" [ngModelOptions]="{standalone: true}" name="specialty" id="specialty">
+                                <option [value]="0" disabled selected>اختار التخصص</option>
+                                <option value="التجميل">قسم التجميل</option>
+                                <option value="اسنان">قسم الاسنان</option>
+                                <option value="عيون">قسم العيون</option>
+                                <option value="عظام">قسم العظام</option>
+                                <option value="قلب">قسم القلب</option>
+                                <option value="انف واذن وحنجره">قسم انف وأذن وحنجرة</option>
+                                <option value="تحاليل">قسم التحاليل</option>
+                                <option value="اشعه">قسم الأشعه</option>
+
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-2 col-md-10 col-sm-10  ">
+                            <h1> فى محافظة </h1>
+                            <div style="border: transparent; box-shadow:none;">
+                              <!-- <i class="fa fa-solid fa-location-dot"></i> -->
+                              <select (change)="selectCity()" class="form-control" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" name="city" id="city">
+                                <option [value]="0" disabled hidden >اختار المحافظة</option>
+                                <option value="القاهرة">القاهرة</option>
+                                <option value="بورسعيد">بورسعيد</option>
+                                <option value="السويس">السويس</option>
+                                <option value="الاسماعيليه">الإسماعيلية</option>
+                              </select>
+
+                            </div>
+                          </div>
+
+                          <div class="col-lg-2 col-md-10 col-sm-10  ">
+                            <h1>فى منطقة</h1>
+                            <div style="border: transparent; box-shadow:none;">
+                              <!-- <i class="fa-solid fa-location-dot"></i> -->
+                              <select [disabled]="city =='0'" [(ngModel)]="region" [ngModelOptions]="{standalone: true}" class="form-control" name="" id="">
+                                <option [value]="0" disabled hidden >اختار المنطقة</option>
+                                <option *ngFor="let reg of regions" [value]="reg">{{reg}}</option>
+                              </select>
+
+                            </div>
+                          </div>
+
+                          <div class="col-lg-2 col-md-10 col-sm-10  ">
+                            <h1>او اكتب اسم </h1>
+                            <input [(ngModel)]="doctorName" [ngModelOptions]="{standalone: true}" class="form-control" type="text" placeholder="إسم الدكتور">
+                          </div>
+
+                          <div class="col-lg-2 col-md-10 col-sm-10 div5">
+                            <button class="btn" (click)="searchReservationDoctor('offline')">
+                              <h1 >
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                ابحث
+                              </h1>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+<div class="container-fluid service">
+  <h1 class="h1">الخدمات الطبيه</h1>
+  <div class="row">
+    <div class="col-lg-6 col-md-11 col-sm-11">
+      <div class="img">
+        <img class="img-fluid" src="./assets\img\logo\TaeAugust19.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-11 col-sm-11  content">
+      <h1>فى مكان واحد</h1>
+      <p>جميع الخدمات الطبية الأقرب اليك</p>
+      <button class="btn btn-danger"> احجز الان</button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid media2">
+  <h1 class="h1"> مترال ميديا</h1>
+  <div class="row">
+    <div class="col-lg-6 col-md-11 col-sm-11">
+      <div class="img">
+        <img class="img-fluid" src="./assets\img\logo\ميديا.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-11 col-sm-11  content">
+      <h1> اقوى منصة تواصل للنصائح الطبية </h1>
+      <p> شارك تجاربك ومشاكلك الصحية مع الاخرين فى اكير منصة طبيه</p>
+      <button class="btn btn-danger"> تصفح الان</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bookType">
+  <h1 class="h1">
+    احجز كشف حسب تخصصك
+  </h1>
+
+  <section class="sm-card-container pl-6">
+    <div class="scrolling">
+      <div>
+        <div class="card">
+          <img src="./assets\img\logo\my-daughter-isn-t-afraid-pay-visit-here.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"> طب الاطفال وحديثى الولادة </h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" >
+          <img src="./assets\img\logo\beautiful-girl-sitting-dentist-s-office.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"> الاسنان</h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" >
+          <img src="./assets\img\logo\beautician-with-brush-applies-white-moisturizing-mask-face-young-girl-client-spa-beauty-salon.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">التجميل</h5>
+          </div>
+        </div>
+      </div> 
+      <div>
+        <div class="card">
+          <img src="./assets\img\logo\my-daughter-isn-t-afraid-pay-visit-here.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"> طب الاطفال وحديثى الولادة </h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" >
+          <img src="./assets\img\logo\beautiful-girl-sitting-dentist-s-office.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"> الاسنان</h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" >
+          <img src="./assets\img\logo\beautician-with-brush-applies-white-moisturizing-mask-face-young-girl-client-spa-beauty-salon.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">التجميل</h5>
+          </div>
+        </div>
+      </div>       
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+<!-----------  مركز ادارة الازمات --------------------------------------- -->
+
+<div class="container-fluid center">
+  <h1 class="h1"> مركز إدارة الازمات </h1>
+  <div class="row">
+    <div class="col-lg-6 col-md-11 col-sm-11">
+      <div class="img">
+        <img class="img-fluid" src="./assets\img\logo\TaeAugust12.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-11 col-sm-11  content">
+      <h1> فى مكان واحد </h1>
+
+      <ul>
+        <li>الاسعاف</li>
+        <li>الكشف المبكر لفيروس كروونا</li>
+        <li>مركز الاسعاف</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------ -->
+
+
+
+
+<!-----------  حمل التطبيق --------------------------------------- -->
+
+<div class="container-fluid downloadApp">
+
+  <div class="row">
+    <div class="col-lg-6 col-md-11 col-sm-11 div1">
+      <div class="img">
+        <img class="img-fluid" src="./assets/img/logo1wdedit.png" alt="">
+      </div>
+      <h1>حمل تطبيق ميترال</h1>
+      <p>احجز.وفر وقت. قارن. اختار الافضل</p>
+      <p>احجز اشاعاتك وتحاليلك</p>
+      <p>كل دا من مكان واحد</p>
+      <img src="./assets/img/app-icon-downloading.png" alt="app-icon-downloaiiid-19 (1)">
+    </div>
+    <div class="col-lg-6 col-md-11 col-sm-11  content">
+      <div class="img">
+        <img class="img-fluid" src="./assets/img/phone.png" alt="phone.png">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------ -->
+
+
+
+<app-footer></app-footer>

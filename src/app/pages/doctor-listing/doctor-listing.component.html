@@ -1,0 +1,333 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+  <app-nav></app-nav>
+  <div class="row reserve-intro">
+      <div class="col-lg-6 text">
+          <p>............احجز مع افضل دكتور ........ في</p>
+          <p>دكتور -...... استاذ واستشاري - اكثر من ......... تخصص..........</p>
+      </div>
+      <div class="col-lg-6">
+          <div class="img">
+              <img class="img-fluid" src="./assets/img/logo1wdedit.png" alt="">
+          </div>
+      </div>
+          <div class="row">
+             
+                
+                <div class="reservation-info" >
+                  <form action="">
+                    <div style="direction: rtl;" class="row">
+                      <div class="col-lg-2 col-md-10 col-sm-10 div1 ">
+                        <h1>انا ابحث عن دكتور</h1>
+                        
+                        <div style="border: transparent; box-shadow:none">
+                          <!-- <i class="fa fa-solid fa-stethoscope"></i> -->
+                          <select class="form-control" [(ngModel)]="specialty" [ngModelOptions]="{standalone: true}" name="specialty" id="specialty">
+                            <option [value]="0" disabled selected>اختار التخصص</option>
+                            <option value="التجميل">قسم التجميل</option>
+                            <option value="اسنان">قسم الاسنان</option>
+                            <option value="عيون">قسم العيون</option>
+                            <option value="عظام">قسم العظام</option>
+                            <option value="قلب">قسم القلب</option>
+                            <option value="انف واذن وحنجره">قسم انف وأذن وحنجرة</option>
+                            <option value="تحاليل">قسم التحاليل</option>
+                            <option value="اشعه">قسم الأشعه</option>
+
+                          </select>
+
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-2 col-md-10 col-sm-10  ">
+                        <h1> فى محافظة </h1>
+                        <div style="border: transparent; box-shadow:none;">
+                          <!-- <i class="fa fa-solid fa-location-dot"></i> -->
+                          <select (change)="selectCity()" class="form-control" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" name="city" id="city">
+                            <option [value]="0" disabled hidden >اختار المحافظة</option>
+                            <option value="القاهرة">القاهرة</option>
+                            <option value="بورسعيد">بورسعيد</option>
+                            <option value="السويس">السويس</option>
+                            <option value="الاسماعيليه">الإسماعيلية</option>
+                          </select>
+
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-2 col-md-10 col-sm-10  ">
+                        <h1>فى منطقة</h1>
+                        <div style="border: transparent; box-shadow:none;">
+                          <!-- <i class="fa-solid fa-location-dot"></i> -->
+                          <select [disabled]="city=='0'" [(ngModel)]="region" [ngModelOptions]="{standalone: true}" class="form-control" name="" id="">
+                            <option [value]="0" disabled hidden >اختار المنطقة</option>
+                            <option *ngFor="let reg of regions" [value]="reg">{{reg}}</option>
+                          </select>
+
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-2 col-md-10 col-sm-10  ">
+                        <h1>او اكتب اسم </h1>
+                        <input [(ngModel)]="doctorName" [ngModelOptions]="{standalone: true}" class="form-control" type="text" placeholder="إسم الدكتور">
+                        
+                      </div>
+  
+                      <div routerLink="/user/doctor-listing" class="col-lg-2 col-md-10 col-sm-10 div5">
+                        <button (click)="searchReservationDoctor()" class="btn">
+                          <h1 >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            ابحث
+                          </h1>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+          </div>
+  </div>
+  
+  
+  <div class="doctor-listing-container row">
+      <div class="col-lg-3">
+        <div style="background-color: #0080FF;padding: 14px 20px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        text-align:right">احصل على نتائج افضل</div>
+          <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <div class="title">
+                              اللقب <i class="fa fa-solid fa-graduation-cap"></i>
+                          </div> 
+                          <div class="arrow"><i class="fa fa-solid fa-angle-down"></i></div>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <label class="container">استاذ
+                              <input name="mr" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">مدرس
+                              <input name="teacher" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">استشاري 
+                              <input name="estshary" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">اخصائي
+                              <input name="consaltant" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                          <div class="title">
+                              النوع <i style="font-weight: bold;" class="fa fa-solid fa-venus-mars"></i>
+                          </div> 
+                          <div class="arrow"><i class="fa fa-solid fa-angle-down"></i></div>
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <label class="container">دكتور 
+                              <input (change)="selectGender($event)" [checked]="gender=='male'" value="male" name="gender" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">دكتورة
+                              <input (change)="selectGender($event)" [checked]="gender=='female'" value="female" name="gender" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                         
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingthree">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          <div class="title">
+                              المواعيد المتاحة <i class="fa fa-solid fa-calendar"></i>
+                          </div> 
+                          <div class="arrow"><i class="fa fa-solid fa-angle-down"></i></div>
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingthree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="container">أي يوم 
+                                <input name="time" type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">اليوم
+                                <input name="time" type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">غدا
+                              <input name="time" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                           
+                        </div>
+                      </div>
+                  </div>
+                  <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingfour">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                            <div class="title">
+                              سعر الكشف <i class="fa fa-solid fa-money"></i>
+                          </div> 
+                          <div class="arrow"><i class="fa fa-solid fa-angle-down"></i></div>
+                        </button>
+                      </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                        <label class="container">من 20 إلي 50 جنيه  
+                            <input (change)="selectPrice($event)"  [checked]="price=='20To50'" value="20To50" name="price" type="radio" >
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="container">من 50الى100 جنيه
+                              <input (change)="selectPrice($event)"  [checked]="price=='50To100'" value="50To100" name="price" type="radio">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="container">من 100 الى 500 جنيه
+                              <input (change)="selectPrice($event)"  [checked]="price=='100To500'" value="100To500" name="price" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                          <label class="container">من 500 الى 1000 جنيه    
+                              <input (change)="selectPrice($event)"  [checked]="price=='500To1000'" value="500To1000" name="price" type="radio">
+                              <span class="checkmark"></span>
+                          </label>
+                           
+                        </div>
+                      </div>
+                    </div>
+          </div>
+      </div>
+      <div class="col-lg-9"> 
+          <div class="row" style="flex-direction:row-reverse ;">
+            <div *ngIf="specialty != '0'" class="col-lg-7 speciality-title">
+              {{title}}
+            </div>
+            <div *ngIf="specialty == '0'" class="col-lg-7 speciality-title"></div>
+            <div class="col-lg-5" style="display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;padding-left: 0;">
+              <div class="speciality-title">
+                ترتيب
+              </div>
+              <div class="dropdown ">
+                <button class="row">
+                  <div class="col-lg-10">
+                    {{sortingBy}}
+                  </div>
+                  <div class="arrow col-lg-2"><i class="fa fa-solid fa-angle-down"></i></div>
+  
+                </button>
+                <div class="dropdown-content">
+                <a [ngClass]="{'selected' : sortingBy=='اعلى تقييمات'}" (click)="sorting('اعلى تقييمات')">اعلى تقييمات</a>
+                <a [ngClass]="{'selected' : sortingBy=='الأعلى سعرا'}" (click)="sorting('الأعلى سعرا')">الأعلى سعرا</a>
+                <a [ngClass]="{'selected' : sortingBy=='الأقل سعرا'}" (click)="sorting('الأقل سعرا')">الأقل سعرا</a>
+                </div>
+              </div> 
+            </div>
+              
+  
+  
+          </div>
+          <div *ngIf="hasDoctor">
+            <div *ngFor="let doctor of doctors | paginate: { itemsPerPage: take,currentPage: page,totalItems: total }" class="row doctor-container"  >
+              <div class="col-lg-6">
+                <div class="row doctor-details-container" >
+                  <div class="img">
+                    <img [src]="doctor['photo'] ? doctor['photo'] : '../../../assets/img/doctor-profile.jpg' " alt="">
+                  </div>
+                  <div class="doctor-details" style="width: 74%;">
+                    <p class="doctor-name">{{doctor['userName']}}</p>
+                    <p class="doctor-title">{{doctor['title']}}</p>
+                    <div class="rating">
+      
+                      <p class="rate">
+                        {{doctor['raiting']}}
+                      </p>
+                      <span [ngClass]="{'checked': doctor['raiting']==5}" class="fa fa-star"></span>
+                      <span [ngClass]="{'checked': doctor['raiting']>=4}" class="fa fa-star"></span>
+                      <span [ngClass]="{'checked': doctor['raiting']>=3}" class="fa fa-star"></span>
+                      <span [ngClass]="{'checked': doctor['raiting']>=2}" class="fa fa-star"></span>
+                      <span [ngClass]="{'checked': doctor['raiting']>=1}" class="fa fa-star"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="details-container">
+                  <p >{{doctor['specialty']}}<i class="fa fa-solid fa-stethoscope"></i></p>
+                  <div *ngIf="doctor['location'] || doctor['city']" style="text-align: right; display: flex;">
+                    <p >{{doctor['city']}} - {{doctor['location']}} </p>
+                    <i style="color: #877BEE;margin-top: 5px; margin-left: 10px" class="fa fa-solid fa-map-pin"></i>
+                  </div>
+                  <p>الكشف : {{doctor['price']}} جنيه <i class="fa fa-solid fa-money"></i></p>
+                  <div class="distance">
+                    <i class="fa fa-solid fa-map-pin"></i> 5.3 km 
+                  </div>
+    
+                </div>
+                
+    
+              </div>
+              <div class="col-lg-6">
+                <section class="sm-card-container" style="height:100%">
+                  <div *ngIf="doctor.calender.length != 0" class="scrolling">
+                    <div  *ngFor="let appointment of doctor['calender']">
+                      <div class="card">
+                        <div class="day">{{appointment['weekday']}}</div>
+                        <div>
+                          <div class="time">من</div>
+                          <div class="time">{{appointment.startAt}}</div>
+                          <div class="time">إلي</div>
+                          <div class="time">{{appointment.endAt}}</div>
+                        </div>
+                        <div (click)="reserveNow(appointment)" class="reserveNow">احجز الان</div>
+    
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="doctor.calender.length == 0" class="scrolling">
+                    <div>
+                      <div class="card">
+                        <div class="day">عذرا</div>
+                        <div class="noAvailableTime">
+                          لا يوجد مواعيد متوفرة
+                        </div>
+                        <div class="reserveNow disabled">احجز الان</div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <pagination-controls previousLabel="" nextLabel="" (pageChange)="changePage((page = $event))"></pagination-controls>
+            </div>
+            
+
+          </div>
+          <div *ngIf="!hasDoctor" style="height: 40vh;display: flex;justify-content: center; align-items: center;">
+            <div style="    background-color: rgba(255, 0, 0,.8);
+            padding: 20px;
+            color: white;
+            border-radius: 20px;
+            font-size: 17px;
+            text-align: center;
+            font-weight: bold;">عذرا، لا يمكن العثور على اي طبيب يطابق بحثك، الرجاء ازالة بعض من المرشحات للحصول على النتائج</div>
+            
+          </div>
+          
+      </div>
+  </div>
+  <app-footer></app-footer>
+
+</div>

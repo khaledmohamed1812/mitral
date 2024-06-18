@@ -1,0 +1,409 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+  }
+  
+  .parent {
+    background-color: black;
+    background-image: url('../../../assets/img/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+  }
+  
+  .parent .firstchild {
+    background-color: transparent;
+    background-image: url('../../../assets/img/logo1wdedit.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-attachment: fixed; */
+    width: 50%;
+    height: 10vh;
+    /* margin: auto; */
+    position: absolute;
+    z-index: 100;
+    top: 2%;
+    left: 26%;
+  }
+  
+  .parent .row .secondchild {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    /* box-shadow: -10px -10px  4px white; */
+    background-color: #F9FBFA;
+    ;
+  
+  }
+  
+  .parent .row .secondchild .content {
+    width: 70%;
+    /* margin: auto; */
+    padding-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-bottom: 0px; */
+    box-sizing: border-box;
+  
+    direction: rtl;
+  }
+  
+  
+  
+  
+  /*
+  /* ***** register *************************** */
+  
+  .parent .row .secondchild .content .nav {
+    width: 100%;
+    margin: 30px 0px;
+    text-align: center;
+    justify-content: center;
+  
+  }
+  
+  .parent .row .secondchild .content .nav .nav-item {
+    width: 50%;
+    margin: 5px 0px;
+    padding: 0px;
+    font-weight: bold;
+    border: 1px solid rgb(192, 191, 191);
+  }
+  
+  
+  .parent .row .secondchild .content .nav .link2 {
+    border-right: 0px !important;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  
+  }
+  
+  .parent .row .secondchild .content .nav .link1 {
+    border-left: 0px !important;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .parent .row .secondchild .content .nav .nav-item .nav-link {
+    padding: 7px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .formRegiter {
+    margin: 10px auto;
+    padding: 10px 0px;
+  
+  }
+  
+  .formRegiter .form-group {
+    margin: 15px 0px;
+    border: 0.5px solid rgb(250, 247, 247);
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 7px;
+  
+    direction: rtl;
+  
+  }
+  
+  
+  .formRegiter .form-group .icon {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    padding: 11px 0px;
+  }
+  
+  
+  
+  .formRegiter .form-group .icon i {
+  
+    font-size: 23px;
+    color: #037FFB;
+  }
+  
+  .formRegiter .form-group .input {
+    width: 90%;
+    display: inline-block;
+  }
+  
+  
+  
+  /* -------------- */
+  
+  .formRegiter .form-group .icon1password,
+  .icon2password {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    padding: 11px 0px;
+  }
+  
+  
+  
+  .formRegiter .form-group .icon1password i,
+  .icon2password i {
+    font-size: 23px;
+    color: #037FFB;
+  }
+  
+  .formRegiter .form-group .inputpassword {
+    width: 80%;
+    display: inline-block;
+  
+  }
+  
+  .formRegiter .form-group .inputpassword input {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  
+  /* -------------- */
+  
+  
+  
+  
+  .formRegiter .form-group .form-control {
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 95%;
+    padding: 13px;
+    font-size: 20px;
+  
+  }
+  
+  
+  .formRegiter .birthdata {
+  
+    /* box-shadow: none ; */
+    padding: 24px 2px;
+    text-align: right;
+    margin-top: 10px;
+    background-color: white;
+  }
+  
+  
+  .formRegiter .birthdata .birthdataLabel {
+    display: inline;
+    direction: rtl;
+    width: auto;
+  
+  
+  }
+  
+  .formRegiter .birthdata .birthdataInput {
+  
+    width: 60%;
+    display: inline;
+    float: left;
+    padding: 2px;
+    border: none;
+    border-radius: none;
+  }
+  
+  
+  .gender {
+  
+    text-align: right;
+    padding: 10px;
+  
+  }
+  
+  .gender .con1 {
+    display: inline-block;
+    width: 20%;
+  }
+  
+  .gender .con {
+  
+    display: inline-block;
+    width: 80%;
+  }
+  
+  .gender .genderLabel {
+    display: inline;
+    direction: rtl;
+    font-size: 20px;
+  }
+  
+  .gender .div {
+    display: inline-block;
+    width: 50%;
+    background-color: transparent;
+  
+  
+  }
+  
+  .gender .genderMale,
+  .gender .genderFemal {
+  
+    display: inline;
+    padding: 2px 20px;
+    margin: 5px 20px;
+  
+  }
+  
+  .gender .div span {
+    font-size: 25px;
+    font-weight: bold;
+  
+  }
+  
+  
+  .formRegiter .btn {
+    background-color: #2BD785 !important;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 20px 0px;
+  }
+  
+  .formRegiter .btn a{
+    color: white;
+  }
+  /* ***** login *************************** */
+  
+  .loginA {
+    color: black;
+    direction: rtl;
+    display: flex;
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: bold;
+  
+  }
+  
+  .loginBtn {
+    background-color: #037FFB !important;
+  }
+  
+  .loginH1 {
+    text-align: center;
+    margin: 15px;
+  }
+  
+  .loginFinal {
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+    width: 100%;
+    direction: ltr;
+  }
+  
+  
+  .loginFinal .loginHr {
+    width: 20%;
+    height: 2px;
+    background-color: black;
+    display: inline-block;
+    margin: 5px;
+  
+  }
+  
+  .loginFinal .loginSpan {
+    width: 40%;
+    display: inline;
+    font-size: 16px;
+  }
+  
+  
+  
+  .social {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .social div {
+    width: 35%;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .social div i {
+    color: blue;
+    font-size: 22px;
+    margin: 5px;
+  }
+  
+  
+  .error{
+    font-size: 15px;
+    padding: 5px;
+    margin: 5px 0px;
+    text-align: right;
+  
+  }
+  
+  
+  @media(max-width:770px) {
+    .gender .div span {
+      font-size: 20px;
+      font-weight: 500;
+  
+    }
+  
+    .parent .row .secondchild .content .nav .nav-item .nav-link {
+      padding: 7px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  
+  
+    .formRegiter .form-group .form-control {
+      font-size: 15px;
+    }
+  
+    .formRegiter .form-group .icon {
+  
+      padding: 7px 0px;
+    }
+    .formRegiter .form-group .icon i {
+  
+      font-size: 22px;
+  
+    }
+  
+    .formRegiter .form-group .icon1password,
+    .icon2password {
+      padding: 7px 0px;
+    }
+  
+  
+  
+    .formRegiter .form-group .icon1password i,
+    .icon2password i {
+      font-size: 22px;
+    }
+  
+  }
+  
+  
+  .none
+  {
+    display: none;
+  }
+  
+  .error{
+    font-size: 15px;
+    padding: 5px;
+    margin: 5px 0px;
+    text-align: right;
+  
+  }
+  

@@ -1,0 +1,79 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div  class="doctor-reservation-page">
+        <div class="doctor-reservation-container">
+            
+            <div class="row" style="flex-direction: row-reverse;">
+                <div class="col-lg-6 row doctor-details-container" >
+                    <div class="img">
+                    <img [src]="doctorInfo.photo" alt="">
+                    </div>
+                    <div class="doctor-details">
+                    <p class="doctor-name">{{doctorInfo.userName}}</p>
+                    <p class="doctor-title">{{doctorInfo.title}}</p>
+                    <div class="rating">
+        
+                        <p class="rate">
+                        {{doctorInfo.raiting}}
+                        </p>
+                        <span [ngClass]="{'checked': doctorInfo.raiting==5}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=4}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=3}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=2}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=1}" class="fa fa-star  checked"></span>
+                    </div>
+                    <div class="distance">
+                        <i class="fa fa-solid fa-map-pin"></i> 5.3 km 
+                    </div>
+                    </div>
+                </div>
+                <div class="details-container col-lg-6">
+                    <p >{{doctorInfo.specialty}} <i class="fa fa-solid fa-stethoscope"></i></p>
+                    <p >{{doctorInfo.city}} - {{doctorInfo.region}}<i class="fa fa-solid fa-map-pin"></i></p>
+                    <p>الكشف : {{doctorInfo.price}} جنيه <i class="fa fa-solid fa-money"></i></p>
+                    
+                </div>
+            </div>
+
+            <div class="reservation-info">
+                <div class="header">
+                    <p>اليوم {{appointment[0].date}} - الفترة من {{startAtArr[0]}} {{startAtAmOrPm}} الى {{endAtArr[0]}} {{endAtAmOrPm}}</p>
+                    <p>الحجز مسبقا والدخول باسبقية الحضور</p>
+                </div>
+                <div class="body">
+                    <p>ادخل بيانات الحجز <i class="fa fa-info"></i></p>
+                    
+                    <div class="input-container">
+                        <input (keypress)="keyPressAlpha($event)" name="name" [(ngModel)]="patientName" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="patientName" placeholder="اسم المريض بالكامل" id="">
+                        <i class="fa fa-regular fa-id-badge"></i>
+                    </div>
+                    <div class="input-container">
+                        <input required (keypress)="numberOnly($event)" #phone="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="mobile" class="form-control" name="mobile" placeholder="رقم الموبايل" pattern="^01[0125][0-9]{8}$" type="tele">
+                        <i class="fa fa-regular fa-phone fa-flip-horizontal"></i>
+                        <span *ngIf="phone.invalid" class="alert" style="color: red;padding: 0;">
+                            <span *ngIf="phone.errors?.['pattern']">
+                                من فضلك قم بإدخال رقم موبايل صحيح
+                            </span>
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <input #Email="ngModel" pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'  type="email" [ngModelOptions]="{standalone: true}" placeholder="البريد الالكتروني (اختياري)" [(ngModel)]="email" class="form-control" name="email" id="email"  >
+                        <i class="fa fa-regular fa-envelope"></i>
+                        <span *ngIf="Email.invalid" class="alert" style="color: red;padding: 0;">
+                            <span *ngIf="Email.errors?.['pattern']">
+                                من فضلك قم بإدخال بريد إلكتروني صحيح
+                                
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="footer row">
+                    <button class="col-lg-6" style="border-top-right-radius: 30px;" [disabled]="!patientName || phone.invalid || Email.invalid" (click)="reserveNow()">تأكيد الحجز</button>
+                    <button class="col-lg-6 button-selected" style="border-top-left-radius: 30px;" routerLink="/user/doctor-listing">العودة لنتائج البحث</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,91 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="container">
+        <div class="row mt-4" style="flex-direction:row-reverse ; justify-content:space-between" >
+            <div class="col-lg-6" style="font-size: 30px; font-weight: bold; color :#007CF5;text-align: right;">
+                ميترال ميديا <i class="fa fa-users"></i>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" (change)="selectSpecialty()" style="text-align:right;" [(ngModel)]="specialty" [ngModelOptions]="{standalone: true}" name="specialty" id="specialty">
+                    <option [value]="0" disabled selected>اختار التخصص</option>
+                    <option value="التجميل">قسم التجميل</option>
+                    <option value="اسنان">قسم الاسنان</option>
+                    <option value="عيون">قسم العيون</option>
+                    <option value="عظام">قسم العظام</option>
+                    <option value="قلب">قسم القلب</option>
+                    <option value="انف واذن وحنجره">قسم انف وأذن وحنجرة</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="write-question-container">
+            <div class="row" style="flex-direction:row-reverse ; justify-content:flex-start;align-items: center;">
+                <div class="write-question" style="padding: 0;">
+                    <i style="position:absolute" class="fa fa-pencil"></i> إكتب إستشارتك 
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" [(ngModel)]="title" placeholder="...ملخص السؤال">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <textarea class="form-control" [(ngModel)]="content" placeholder="تفاصيل السؤال والاعراض" id="content" name="content" rows="4" cols="50">
+                </textarea>
+            </div>
+            <div class="row mt-4" style="flex-direction:row-reverse ; justify-content:space-between;align-items: center;">
+                <div class="col-lg-4">
+                    <select class="form-control" style="text-align:right;" [(ngModel)]="specialtyOfQuestion" [ngModelOptions]="{standalone: true}" name="specialty" id="specialty">
+                        <option [value]="0" disabled selected>اختار القسم المتخصص</option>
+                        <option value="التجميل">قسم التجميل</option>
+                        <option value="اسنان">قسم الاسنان</option>
+                        <option value="عيون">قسم العيون</option>
+                        <option value="عظام">قسم العظام</option>
+                        <option value="قلب">قسم القلب</option>
+                        <option value="انف واذن وحنجره">قسم انف وأذن وحنجرة</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn" [disabled]="!title || !content || specialtyOfQuestion =='0'" (click)="shareNow()">نشر الآن</button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div *ngIf="hasPosts">
+            <div class="question-container mb-4" *ngFor="let post of posts | paginate: { itemsPerPage: take,currentPage: page,totalItems: total }">
+                <div class="row" style="flex-direction:row-reverse ; justify-content:space-between;align-items: center;">
+                    <div class="col-lg-6 title" style="text-align: right;">
+                        سؤالي
+                    </div>
+                    <div class="col-lg-6 title" style="text-align:left">
+                        {{post.specialty}}
+                    </div>
+                </div>
+                <div class="content-container mt-3">
+                    <div class="title-question">{{post.title}}</div>
+                    <div class="content mt-3">{{post.content}}</div>
+                    <div class="row mt-2" style="flex-direction:row-reverse ; justify-content:space-between;align-items: center;">
+                        <div class="col-lg-6 title" style="text-align: right;">
+                            {{post.createdAt | date: 'h:mm'}} <i class="fa fa-clock-o"></i>
+                        </div>
+                        <div class="col-lg-6 title" style="text-align:left">
+                            {{post.createdAt | date: 'dd/MM/yyyy'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <button style="font-size:24px;font-weight:bold;width: 80%;margin-left: 10%;" class="col-lg-6" class="btn" (click)="naviagteToReply(post._id)"> <i class="fa fa-reply"></i> الردود </button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <pagination-controls previousLabel="" nextLabel="" (pageChange)="changePage((page = $event))"></pagination-controls>
+            </div>
+        </div>
+        <div *ngIf="!hasPosts" style="height: 40vh;display: flex;justify-content: center; align-items: center;">
+            <div style=" background-color: rgba(255, 0, 0,.8);padding: 20px;color: white;border-radius: 20px;font-size: 17px;text-align: center;font-weight: bold;width:70%">لم يتم العثور علي نتائج</div>
+            
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

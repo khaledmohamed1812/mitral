@@ -1,0 +1,104 @@
+.container .h3{
+    color: #92C2F1 ;
+    padding: 10px;
+    margin: 50px 5px 0px 5px;
+    text-align: center;
+    width: 80%;
+  
+  }
+  
+  
+  .content{
+    border: 2px solid #8288AC;
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+  .content .card{
+    width: 100%;
+    height: 100%;
+    border: none;
+    
+  
+  
+  }
+  .content .card .card-img-top
+  {
+    width: 100%;
+    height: auto;
+  }
+  
+  .content .card .card-img-top i{
+    width: 100%;
+    height: 100%;
+    font-size: 125px;
+    color: #92C2F1;
+    margin: 28px 0px;
+    padding: 30px 0px;
+  }
+  
+  .content .card .card-body{
+    padding: 0px !important;
+  }
+  
+  .content .card .card-body h1{
+    font-size: 44px;
+    font-weight: bold;
+    color:#8288AC;
+    text-align: center;
+  }
+  .card-title{
+    font-weight: bold;
+    font-size: 20px;
+    color: #92C2F1 ;
+  }
+  
+  
+  
+  .col-md-8 , .col-sm-8{
+    margin: auto;
+  }
+  .second{
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    height: 100vh;
+    background-color: #1E85F1;
+  }  
+  .second-header{
+    width: 100%;
+    height: 5%;
+    padding: 10px 0px;
+  }
+  .second-header img{
+    width: 100%;
+    margin: 0px 0px 50px;
+  }
+  
+  .second-content ul{
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+  
+  .second-content ul a{
+    text-decoration: none;
+  }
+  
+  .second-content ul li{
+    font-size: 25px;
+    color: #1E85F1;
+    background-color: white;
+    border-top-right-radius: 31px;
+    border-bottom-right-radius: 31px;
+    margin: 10px 0px;
+    text-align: right;
+    width: 95%;
+    padding: 5px 10px 5px 0px;
+    font-weight: bold;
+  }
+  
+  .second-content ul .secondLi{
+    width: 80%;
+  }

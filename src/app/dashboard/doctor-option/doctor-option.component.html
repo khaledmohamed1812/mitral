@@ -1,0 +1,54 @@
+<app-nav></app-nav>
+<div class="second">
+  <div class="container-fluid">
+      <div class="second-header">
+        <img src="./assets/img/logo1wdedit.png" alt="header">
+      </div>
+      <div class="second-content">
+        <ul>
+         <a routerLink="/dashboard/home" >
+          <li>الصفحة الرئيسية
+            <i class="fa fa-hospital-o"></i>
+          </li>
+         </a>
+         <a >
+          <li class="secondLi ">
+            الأطباء
+            <i class="fa fa-solid fa-stethoscope"></i>
+          </li>
+         </a>
+        </ul>
+      </div>
+  </div>
+</div>
+<div class="container w-100 text-center ">
+    <h3 class="h3">الأطباء</h3>
+    <div class="row text-center" style="width: 80%">
+      <div class="col-lg-6 col-md-8  col-sm-8  mt-3">
+          <div class="content" routerLink="/dashboard/doctors/doctor-listing">
+            <div class="card">
+              <div class="card-img-top">
+                <i class="fa fa-check-square"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-title">الأطباء الموثوقين</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-6 col-md-8  col-sm-8  mt-3">
+        <div class="content" routerLink="/dashboard/doctors/waiting-list">
+          <div class="card">
+            <div class="card-img-top">
+              <i class="fa fa-clock-o"></i>
+            </div>
+            <div class="card-body">
+              <p class="card-title">قائمة الأنتظار</p>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+  

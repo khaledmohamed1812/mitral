@@ -1,0 +1,177 @@
+.container{
+  margin: 0;
+  width: 80%;
+}
+.container-fluid .h1 {
+    direction: rtl;
+    display: flex;
+    font-size: 45px;
+    font-weight: bold;
+    padding: 10px 30px 0px 0px;
+  }
+  .option-container{
+    justify-content: center;
+  }
+
+  .option{
+    border:2px solid #BB92F1;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #95D3F0;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px;
+  }
+  
+  .container-fluid .h3 {
+    direction: rtl;
+    display: flex;
+    font-size: 30px;
+    padding: 0px 30px 0px 0px;
+  }
+  
+  
+  .selected select {
+    border-radius: 14px;
+    margin: 13px;
+    width: 100%;
+    font-family: inherit;
+    line-height: inherit;
+    font-size: 25px;
+    direction: rtl;
+    padding: 4px;
+    color: #2E4765;
+    font-weight: bold;
+    border: 1px solid gray;
+  }
+  
+  
+  
+  /* first part from table */
+  table thead tr th {
+    background-color: #F2F8FE;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .navbar-brand {
+    height: 0px;
+    padding: 0px;
+    font-size: 16px;
+    line-height: normal;
+    display: inline;
+    float: none !important;
+  }
+  
+  .navbar-brand img {
+    border-radius: 50%;
+    display: inline;
+  }
+  table tbody tr th span{
+    text-align: center;
+    color: gray;
+    padding: 5px;
+  }
+  
+  .tdButton{
+    text-align: center;
+  }
+  .tdButton .btn1{
+    background-color: #006AFF;
+  }
+  
+  .tdButton .btn2{
+    background-color:#FB1414;
+  }
+  table tbody tr td button{
+    margin: 5px;
+    border-radius: 20px;
+    color: white;
+    padding: 3px 14px;
+  }
+  .table td, .table th {
+    padding: 0.5rem;
+  }
+  
+
+  
+
+  .stars i{
+    padding: 5px;
+  }
+  .second{
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    height: 100vh;
+    background-color: #1E85F1;
+  }  
+  .second-header{
+    width: 100%;
+    height: 5%;
+    padding: 10px 0px;
+  }
+  .second-header img{
+    width: 100%;
+    margin: 0px 0px 50px;
+  }
+  
+  .second-content ul{
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+  
+  .second-content ul a{
+    text-decoration: none;
+  }
+  
+  .second-content ul li{
+    font-size: 25px;
+    color: #1E85F1;
+    background-color: white;
+    border-top-right-radius: 31px;
+    border-bottom-right-radius: 31px;
+    margin: 10px 0px;
+    text-align: right;
+    width: 95%;
+    padding: 5px 10px 5px 0px;
+    font-weight: bold;
+  }
+  
+  .second-content ul .secondLi{
+    width: 80%;
+  }
+  .subcontent{
+    width: 65% !important;
+    font-size: 20px !important;
+
+  }
+
+.checked{
+  color: #FFD700 !important;
+}
+
+#loading{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

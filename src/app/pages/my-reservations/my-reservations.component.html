@@ -1,0 +1,74 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="header-page">قسم الحجوزات الشخصية <i class="fa fa-regular fa-users"></i></div>
+    <div style="margin:0 20%">
+        <p class="mt-5">هل تتلقي علاج لأي أمراض مزمنة؟</p>
+        <div class="row mt-2" style="flex-direction:row-reverse ; justify-content:space-around">
+            <div class="container row col-lg-3" style="align-items: center;">
+                <input style="margin-right:5px;" class="col-lg-1" name="da3't" type="checkbox">
+                <p class="col-lg-2">الضغط</p>
+            </div>
+            <div class="container row col-lg-3" style="align-items: center;">
+                <input style="margin-right:5px;" class="col-lg-1" name="sugar" type="checkbox">
+                <p class="col-lg-2">السكر</p>
+            </div>
+            <div class="container row col-lg-3" style="align-items: center;">
+                <input style="margin-right:5px;" class="col-lg-1" name="heart" type="checkbox">
+                <p class="col-lg-2">القلب</p>
+            </div>
+            <div class="container row col-lg-3" style="align-items: center;">
+                <input style="margin-right:5px;" class="col-lg-1" name="other" type="checkbox">
+                <p class="col-lg-2">آخري</p>
+            </div>
+        </div>
+        <input type="text" class="form-control mt-3" placeholder="...ملحوظات ">
+        
+        <div class="my-reservation-container mt-4">
+            <p>حجوزاتي</p>
+            <div class="mt-4" *ngIf="reservations.length !=0" >
+                <div class="my-reservation-details mt-5" *ngFor="let res of reservations" >
+                    <div class="row" style="flex-direction: row-reverse;">
+                        <div class="col-lg-6">
+                            <div class="row doctor-details-container" >
+                                <div class="img">
+                                    <img [src]="res.doctor.photo" alt="">
+                                </div>
+                                <div class="doctor-details">
+                                    <p class="doctor-name">{{res.doctor.userName}}</p>
+                                    <p *ngIf="res.reservationPlace">{{res.reservationPlace}}</p>
+                                    <a style="color:white ;font-weight:bold;cursor:pointer" (click)="goToMeeting(res.meeting)" *ngIf="res.meeting">{{res.meeting}} </a>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 row" style="flex-direction: row-reverse;">
+                            <p class="col-lg-6">{{res.start}} <i style="margin-left: 5px;" class="fa fa-clock-o"></i></p>
+                            <p class="col-lg-6">{{res.time}}</p>
+                        </div>
+        
+                    </div>
+                    <div class="row">
+                        <p class="col-lg-6" style="text-align: center;">{{res.doctor.specialty}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div *ngIf="reservations.length ==0" style="height: 40vh;display: flex;justify-content: center; align-items: center;">
+                <div style=" background-color: rgba(255, 0, 0,.8);padding: 20px;color: white;border-radius: 20px;font-size: 17px;text-align: center;font-weight: bold;width:70%">لا يوجد حجوزات</div>
+            </div>
+        </div>
+
+     
+
+        <div class="my-reservation-container mt-4 mb-5">
+            <div routerLink="/user/my-questions" class="my-reservation-details" style="text-align: right; cursor: pointer;">
+                <div class="write-question" style="padding: 0;">
+                    <i style="position:absolute" class="fa fa-pencil"></i> اسألتي  
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

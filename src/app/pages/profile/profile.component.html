@@ -1,0 +1,72 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="header-page">البيانات الشخصية <i class="fa fa-regular fa-user"></i></div>
+    <div class="row" style="flex-direction: row-reverse ; padding: 50px;">
+        <div class="col-lg-8">
+            <div class="row input-container">
+                <div class="col-lg-6">الاسم</div>
+                <div class="col-lg-6"> 
+                    <input [(ngModel)]="userName" class="form-control"  type="text" name="userName" id="">
+                </div>
+            </div>
+            <div class="row input-container">
+                <div class="col-lg-6">البريد الإلكتروني</div>
+                <div class="col-lg-6"> 
+                    <input [(ngModel)]="email" class="form-control" type="email" name="email" id="">
+                </div>
+            </div>
+            <div class="row input-container">
+                <div class="col-lg-6">رقم التليفون</div>
+                <div class="col-lg-6"> 
+                    <input [(ngModel)]="mobile" class="form-control" type="tel" name="mobile" id="">
+                </div>
+            </div>
+            <div class="row input-container">
+                <div class="col-lg-6">تاريخ الميلاد</div>
+                <div class="col-lg-6"> 
+                    <input [(ngModel)]="date" class="form-control" type="date" name="date" id="">
+                </div>
+            </div>
+            
+        </div>
+    
+        <div class="col-lg-4">
+            <div class="profileOrChangePass">
+                <div><img style="width: 80%;" src="../../../assets/img/logo1wdedit.png" alt=""></div>
+                <div routerLink="/user/change-password">تغيير الرقم السري </div>
+                <div> <i class="fa fa-regular fa-caret-right"></i> معلوماتى الشخصية</div>
+    
+            </div>
+        </div>
+    
+    
+    
+    </div>
+    <div class="footer row ">
+        <div class="col-lg-6" style="border-bottom-right-radius: 30px;" (click)="editProfile()">تأكيد </div>
+        <div class="col-lg-6 button-selected" style="border-bottom-left-radius: 30px;" (click)="open(removeModal)" >حذف الحساب</div>
+    </div>
+    
+    
+    <app-footer></app-footer>
+    <ng-template #removeModal let-modal>
+        <div class="modal-header" style="justify-content: center">
+          <h4 class="modal-title" id="modal-basic-title">
+            تأكيد حذف
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+          <p> هل أنت حقاً تريد حذف الحساب؟</p>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+            <button type="button" class="btn btn-primary" (click)="modal.dismiss('Cross click')"  >
+             إغلاق
+            </button>
+          <button type="button" class="btn btn-danger"  (click)="deleteAccount()">
+            حذف
+          </button>
+        </div>
+    </ng-template>
+
+</div>

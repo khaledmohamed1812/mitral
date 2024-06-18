@@ -1,0 +1,200 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="row page-container">
+        <div class="col-lg-7">
+            <div class="doctor-info">
+                <div class="row doctor-details-container" >
+                    <div class="img">
+                    <img [src]="doctorInfo.photo" alt="">
+                    </div>
+                    <div class="doctor-details">
+                    <p class="doctor-name">{{doctorInfo.userName}}</p>
+                    <p class="doctor-title">{{doctorInfo.title}}</p>
+                    <div class="rating">
+        
+                        <p class="rate">
+                        {{doctorInfo.raiting}}
+                        </p>
+                        <span [ngClass]="{'checked': doctorInfo.raiting==5}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=4}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=3}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=2}" class="fa fa-star checked"></span>
+                        <span [ngClass]="{'checked': doctorInfo.raiting>=1}" class="fa fa-star checked"></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="row loaction-container" >
+                    <div class="location-icon-container">
+                        <i class="fa fa-regular fa-map-pin"></i>
+                    </div>
+                    <div class="doctor-details">
+                    <p>{{doctorInfo.city}} - {{doctorInfo.region}}</p>
+                    <p>إحجز الآن وسيتم إرسال كافة التفاصيل إليك</p>
+                    </div>
+                </div>
+                <div class="review-patient-container">
+                    <div class="first-row">تقيمات المرضي  <i class="fa fa-regular fa-book"></i></div>
+                    <div *ngIf="doctorInfo.reviews.length != 0">
+                        <div *ngFor="let review of doctorInfo.reviews"  class="review">
+                            <div style="display: flex; flex-direction:row-reverse;justify-content:space-between; align-items:center">
+                                <p class="review-name">{{review.name}}</p>
+                                <p class="review-rate" >
+                                    <span [ngClass]="{'checked': review.rating==5}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=4}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=3}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=2}" class="fa fa-star"></span>
+                                    <span [ngClass]="{'checked': review.rating>=1}" class="fa fa-star"></span>
+                                </p>
+        
+                            </div>
+                            <p class="review-content">"{{review.comment}}"</p>
+                            <div class="more"><i class="fa fa-angle-down"></i></div>
+                        </div>
+
+                    </div>
+                    <div *ngIf="doctorInfo.reviews.length == 0">
+                        <div  class="review">
+                            <div style="display: flex; flex-direction:row-reverse;justify-content:space-between; align-items:center">
+                                <p class="review-name"> لا يوجد تقييمات</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div (click)="openModal(loginModal,reviewModal)" class="add-review">
+                        <p>...اضف تقييمك للطبيب</p>
+                        <i class="fa fa-regular fa-book"></i>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="doctor-info-container">
+                <p style="margin: 0 10px 5px 0;"> معلومات عن الدكتور <i style="margin-left: 10px; font-size: 35px;" class="fa fa-regular fa-info"> </i></p>
+                <p style="margin:0 65px 5px 0;">{{doctorInfo.title}}</p>
+                <p style="margin:0 90px 0 0;">مدير مستشفى ام المصريين التخصصية</p>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <button (click)="openComplaintModal(loginModal,complaintModal)" style="border-radius: 20px; width:100%;color: white; font-weight: bold;" class="row btn btn-warning" >إذا كنت تريد كتابة شكوي إضغط هنا</button>
+            <div class="reservation-info-container mt-3">
+                <div class="header"> معلومات الحجز <i class="fa fa-regular fa-info"></i></div>
+                <div class="body">
+                    <div>
+                        <i class="fa fa-solid fa-money"></i>
+                        <p>سعر الكشف</p>
+                        <p>{{doctorInfo.price}} جنيه</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-regular fa-search"></i>
+                        <i class="fa fa-regular fa-clock-rotate-left"></i>
+
+                        <p>{{doctorInfo.location}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="time-reservation-info-container">
+                <div class="header"> اختار ميعاد الحجز </div>
+                <div style="padding:20px ;"> 
+                    <p >يوليو 2022</p>
+                    <div class="body">
+                        <div (click)="selectedDay(day,i)" [ngClass]="{'selected': i==dayClickedIndex}"  *ngFor="let day of keys; let i=index">
+                            <p>{{day}}</p>
+                        </div>
+                    </div>
+                    <div [hidden]="!showTime">
+                        <p class="mt-4" >الساعة</p>
+                        <div class="time-body">
+                            <div (click)="selectTime(time,i)" [ngClass]="{'selected': i == timeClickedIndex}" *ngFor="let time of values[dayClickedIndex]; let i=index">
+                                <p>{{time}}</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <button [disabled]="dayClickedIndex == undefined || timeClickedIndex ==undefined" (click)="reserveNow(loginModal)" class="btn button" routerLink="/user/doctor-reservation">احجز الان</button>
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <app-footer></app-footer>
+
+
+    <ng-template #reviewModal let-modal>
+        <div class="modal-header" style="justify-content: end">
+          <h4 class="modal-title" id="modal-basic-title" style="justify-content: end; color: #0080FF;">
+            {{userName}}
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+            <textarea [(ngModel)]="comment" placeholder="إكتب تقييم" id="w3review" name="w3review" rows="4" cols="50">
+
+                
+            </textarea>
+            <div class="rating" style="position:absolute;left: 65px; bottom: 30px">
+                <span (click)="addReviewNumber(5)" [ngClass]="{'checked': rate==5}" class="fa fa-star"></span>
+                <span (click)="addReviewNumber(4)" [ngClass]="{'checked': rate>=4}" class="fa fa-star"></span>
+                <span (click)="addReviewNumber(3)" [ngClass]="{'checked': rate>=3}" class="fa fa-star"></span>
+                <span (click)="addReviewNumber(2)" [ngClass]="{'checked': rate>=2}" class="fa fa-star"></span>
+                <span (click)="addReviewNumber(1)" [ngClass]="{'checked': rate>=1}" class="fa fa-star"></span>
+            </div>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+            <button type="button" class="btn btn-danger"  (click)="modal.dismiss('Cross click')">
+                إغلاق
+            </button>
+            <button [disabled]="!comment || !rate" type="button" class="btn btn-primary" (click)="addReview()" >
+              إضافة تقييم
+            </button>
+        </div>
+    </ng-template>
+    <ng-template #loginModal let-modal>
+        <div class="modal-header" style="justify-content: center">
+          <h4 class="modal-title" id="modal-basic-title">
+            !تنبيه
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+          <p>من فضلك قم بتسجيل الدخول أولاً</p>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+          <button type="button" class="btn btn-danger"  (click)="modal.dismiss('Cross click')">
+            إغلاق
+          </button>
+          <button type="button" class="btn btn-primary" (click)="modal.dismiss('Cross click')" routerLink="/user/login" >
+          تسجيل الدخول
+          </button>
+        </div>
+    </ng-template>
+
+    <ng-template #complaintModal let-modal>
+        <div class="modal-header" style="justify-content: end">
+          <h4 class="modal-title" id="modal-basic-title" style="justify-content: end; color: #0080FF;">
+            {{userName}}
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+            <textarea [(ngModel)]="complaint" placeholder="إكتب شكوتك" id="w3review" name="w3review" rows="4" cols="50">
+
+                
+            </textarea>
+           
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+            <button type="button" class="btn btn-danger"  (click)="modal.dismiss('Cross click')">
+                إغلاق
+            </button>
+            <button [disabled]="!complaint" class="btn btn-primary" (click)="addComplaint()" >
+              إضافة شكوي
+            </button>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,98 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading">
+    <app-nav></app-nav>
+    <div class="container">
+        <div class="row mt-4" style="justify-content:center" >
+            <div style="font-size: 30px; font-weight: bold; color :#007CF5;text-align: center;">
+                ميترال ميديا <i class="fa fa-users"></i>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="question-container mb-4">
+                <div class="row" style="flex-direction:row-reverse ; justify-content:space-between;align-items: center;">
+                    <div *ngIf="post.creator" class="col-lg-6 title" style="text-align: right;">
+                        {{post.creator.userName}}
+                    </div>
+                    <div *ngIf="post.creator ==null" class="col-lg-6 title" style="text-align: right;">
+                        سؤال
+                    </div>
+                    <div class="col-lg-6 title" style="text-align:left">
+                        {{post.specialty}} 
+                    </div>
+                </div>
+                <div class="content-container mt-3">
+                    <div class="title-question">{{post.title}}</div>
+                    <div class="content mt-3">{{post.content}}</div>
+                    <div class="row mt-2" style="flex-direction:row-reverse ; justify-content:space-between;align-items: center;">
+                        <div class="col-lg-6 title" style="text-align: right;">
+                            {{post.createdAt | date: 'h:mm'}} <i class="fa fa-clock-o"></i>
+
+                        </div>
+                        <div class="col-lg-6 title" style="text-align:left">
+                            {{post.createdAt | date: 'dd/MM/yyyy'}}
+                        </div>
+                    </div>
+                </div>
+                <div  *ngIf="post.creator !=null">
+                    <button (click)="open(editPost)" *ngIf="post.creator._id == userId" class="btn">تعديل <i class="fa fa-pencil"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="post.comments!==0">
+            <div class="mt-4 comment-container" *ngFor="let comment of post.comments" >
+                <div class="row" style="flex-direction: row-reverse;">
+                    <div class="col-lg-6">
+                        <div class="row doctor-details-container" >
+                            <div class="img">
+                                <img *ngIf="comment.doctorComment == null" src="../../../assets/img/doctor-profile.jpg" alt="">
+                                <img *ngIf="comment.doctorComment != null" [src]="comment.doctorComment.photo" alt="">
+
+                            </div>
+                            <div class="doctor-details">
+                                <p class="doctor-name" *ngIf="comment.doctorComment == null">إسم الدكتور</p>
+                                <p class="doctor-name" *ngIf="comment.doctorComment != null">{{comment.doctorComment.userName}}</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="font-size: 18px;font-weight: bold;color: #81BEFA;">
+                        <p class="doctor-name" *ngIf="comment.doctorComment == null">التخصص</p>
+                        <p class="doctor-name" *ngIf="comment.doctorComment != null">{{comment.doctorComment.specialty}}</p>
+                            
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <div class="row comment">
+                        <p>
+                            {{comment.comment}}
+                        </p>
+                    </div>
+                    <p style="text-align: right;font-size: 18px;font-weight: bold;color: #81BEFA;">{{comment.time}} <i style="margin-left: 5px;" class="fa fa-clock-o"></i></p>
+                </div>
+            </div>
+        </div>     
+    </div>
+    <app-footer></app-footer>
+
+    <ng-template #editPost let-modal>
+        <div class="modal-header" style="justify-content: center">
+          <h4 class="modal-title" id="modal-basic-title">
+            تعديل سؤال
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+            <input style="text-align:right;" type="text" class="form-control" [(ngModel)]="title" placeholder="...ملخص السؤال">
+            <textarea style="text-align: right;" class="form-control mt-3" [(ngModel)]="content" placeholder="تفاصيل السؤال والاعراض" id="content" name="content" rows="4" cols="50">
+            </textarea>
+            
+        
+        </div>
+        <div class="modal-footer" style="justify-content: flex-start;">
+          <button type="button" class="btn btn-danger" style="background-color: red;"  (click)="modal.dismiss('Cross click')">
+            إغلاق
+          </button>
+          <button type="button" class="btn btn-primary" (click)="onEditPost()" >تعديل</button>
+        </div>
+    </ng-template>
+</div>

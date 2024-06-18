@@ -1,0 +1,189 @@
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12  parent">
+        <div class="col-lg-12 col-md-12 col-sm-12 firstchild">
+  
+        </div>
+  
+  
+        <div class="row">
+  
+          <div class="col-lg-6 col-md-6 col-sm-6 ">
+  
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 ">
+            <div class="secondchild">
+  
+              
+            <div class="content">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item link1" role="presentation">
+                    <a class="nav-link " id="pills-home-tab" data-toggle="pill"
+                      routerLink="/user/login" role="tab" aria-controls="pills-home"
+                      aria-selected="true"> تسجيل الدخول</a>
+                  </li>
+                  <li class="nav-item link2" role="presentation">
+                    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill"
+                      routerLink="/user/register" role="tab" aria-controls="pills-profile"
+                      aria-selected="false"> إنشاء حساب جديد</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active in" id="pills-home" role="tabpanel"
+                    aria-labelledby="pills-home-tab">
+                    <div class="formRegiter ">
+                      
+                      <div class="form-group">
+                        <div class="icon">
+                          <i class="fa fa-regular fa-user"></i>
+                        </div>
+                        <div class="input">
+                          <input [(ngModel)]="user.userName" ngModel #username="ngModel" name="userName" type="text"
+                            class="form-control" placeholder="   اسم المستخدم    " required >
+                        </div>
+    
+                        <div *ngIf="username.touched && username.invalid && username.errors?.['required']"
+                          class="error alert alert-danger">
+                          اسم المستخدم مطلوب
+                        </div>
+    
+                      </div>
+    
+    
+    
+    
+                      <div class="form-group">
+                        <div class="icon">
+                          <i class="fa fa-regular fa-envelope"></i>
+                        </div>
+                        <div class="input">
+                          <input [(ngModel)]="user.email" ngModel #email="ngModel" name="email" type="email"
+                            class="form-control" aria-describedby="emailHelp" placeholder="   الأيميل   " required pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'>
+                        </div>
+                        <div *ngIf="email.touched && email.invalid && email.errors?.['required']"
+                          class="error alert alert-danger">
+                          الايميل مطلوب
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']"
+                          class="error alert alert-danger">
+                          الايميل غير صحيح
+                        </div>
+                      </div>
+    
+                      <div class="form-group">
+                        <div class="icon1password">
+                          <i class="fa fa-regular fa-key"></i>
+                        </div>
+                        <div class="inputpassword">
+                          <input [(ngModel)]="user.password" ngModel #password="ngModel" required name="password" [type]="show ? 'text' : 'password'"
+                            class="form-control" placeholder="   كلمة المرور   " >
+                        </div>
+                        <div class="icon2password" (click)="show=!show">
+                          <i class="fa fa-regular fa-eye"></i>
+                        </div>
+    
+                        <div *ngIf="password.touched && password.invalid && password.errors?.['required']"
+                          class="error alert alert-danger">
+                          كلمة المرور مطلوبة
+                        </div>
+    
+                      </div>
+    
+                      <div class="form-group">
+                        <div class="icon1password">
+                          <i class="fa fa-regular fa-key"></i>
+                        </div>
+                        <div class="inputpassword">
+                          <input [(ngModel)]="user.confirmPassword" ngModel #confirmPassword="ngModel"
+                            name="confirmPassword" [type]="showConfirm ? 'text' : 'password'" class="form-control" required
+                            placeholder="   تأكيد كلمة المرور   " >
+                        </div>
+                        <div class="icon2password" (click)="showConfirm=!showConfirm">
+                          <i class="fa fa-regular fa-eye"></i>
+                        </div>
+    
+                        <div *ngIf="confirmPassword.touched && confirmPassword.invalid && confirmPassword.errors?.['required']"
+                          class="error alert alert-danger">
+                          تأكيد كملة المرور مطلوب
+                        </div>
+                      </div>
+    
+                      <div class="form-group">
+                        <div class="icon">
+                          <i class="fa fa-regular fa-phone fa-flip-horizontal"></i>
+                        </div>
+                        <div class="input">
+                          <input [(ngModel)]="user.phone" ngModel required #phone="ngModel" name="phone" type="text"
+                            class="form-control" id="exampleInputPassword1" placeholder="   رقم الهاتف   ">
+                        </div>
+                        <div *ngIf="phone.touched && phone.invalid && phone.errors?.['required']"
+                          class="error alert alert-danger">
+                          رقم الهاتف مطلوب </div>
+                      </div>
+    
+    
+                      <div class="form-group birthdata">
+                        <label class="birthdataLabel"> تاريخ الميلاد </label>
+                        <input [(ngModel)]="user.birthDate" ngModel required #birthdate="ngModel" name="birthDate" type="date"
+                        placeholder="dd-mm-yyyy" value=""
+                        min="01-01-1900" max="31-12-2030"
+                          class="form-control birthdataInput" >
+    
+                        <div *ngIf="birthdate.touched && birthdate.invalid && birthdate.errors?.['required']"
+                          class="error alert alert-danger">
+                          تاريخ الميلاد مطلوب </div>
+                      </div>
+    
+                      <div class="form-group gender">
+                        <div class="con1">
+                          <label class="genderLabel"> النوع :</label>
+                        </div>
+                        <div class="con">
+                          <div class="div">
+                            <span>ذكر</span>
+                            <input [(ngModel)]="user.gender" ngModel  #gender1="ngModel" type="radio" name="gender"
+                              class="genderMale" value="male">
+                          </div>
+    
+                          <div class="div">
+                            <span>انثى</span>
+                            <input [(ngModel)]="user.gender" ngModel #gender2="ngModel" type="radio" name="gender"
+                              class="genderFemal" value="female">
+                          </div>
+                        </div>
+    
+    
+    
+                      </div>
+    
+                      <button type="submit" (click)="Register()" [disabled]="username.invalid || email.invalid || password.invalid || confirmPassword.invalid || phone.invalid || birthdate.invalid" class="btn btn-success w-100">تسجيل الدخول </button>
+                      <div class="loginFinal">
+                        <div class="loginHr"></div>
+                        <h1 class="loginSpan">سجل عبر السوشيال ميديا</h1>
+                        <div class="loginHr"></div>
+                      </div>
+    
+                      <div class="social">
+                        <div>
+    
+                          Google
+                          <i class="fa fa-brands fa-google"></i>
+                        </div>
+                        <div>
+    
+                          Facebook
+                          <i class="fa fa-brands fa-facebook"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
